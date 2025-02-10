@@ -16,7 +16,7 @@ export class ProductsService {
   public readonly products = this._products.asReadonly();
 
   public get(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.path).pipe(
+    return this.http.get<Product[]>(this.apiUrl).pipe(
       catchError((error) => {
         return this.http.get<Product[]>(this.apiUrl);
       }),
